@@ -1,3 +1,10 @@
+This is the final capstone project for my Meta's Front End Developer Certification, showcasing my expertise in React. The project utilizes the latest React technologies and features a responsive design, optimized for both desktop and mobile devices. The user interface is intuitive, making it easy for users to navigate and interact with the application. Whether you're an experienced developer or just starting out, this project is a testament to my commitment to excellence and my ability to bring innovative ideas to life using React.
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
