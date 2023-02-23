@@ -33,14 +33,14 @@ const data = [
 
 const Highlights = () => {
     return (
-        <Box mb={5}>
+        <Box bg='brand.highlight1'>
             <Flex justifyContent='space-between' mx={5}>
                 <Text fontWeight='bold' fontSize={44}>This week's specials!</Text>
                 <Button bg='brand.primary2' borderRadius={16} px={2} mt={3} fontWeight='bold'>Online Menu</Button>
             </Flex>
-            <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }} gap={4} m={5}>
+            <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }} gap={4} mx={5} py={5}>
                 {data.map(item => (
-                    <VStack key={item.id} border='1px' p={2}>
+                    <VStack key={item.id} border='1px' borderRadius={16} p={2}>
                         <img src={item.image} />
                         <HStack>
                             <Text>{item.title}</Text>
