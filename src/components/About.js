@@ -5,7 +5,7 @@ const About = () => {
     const direction = useBreakpointValue({ base: 'column', lg: 'row' });
 
     return (
-        <Flex py={20} justifyContent="center" alignItems="center" p={10}>
+        <Flex py={20} justifyContent="center" alignItems="center" p={10} bg='brand.highlight1' mt={-5}>
             <Box
                 textAlign={direction === 'column' ? 'center' : 'left'}
                 mr={10}
