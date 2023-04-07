@@ -16,7 +16,7 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
         initialValues: {
             date: "",
             time: "",
-            guests: 1,
+            guests: 0,
             occasion: "",
         },
         validationSchema,
@@ -29,7 +29,6 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
         const fetchAvailableTimes = async () => {
             const response = await fetch(
                 `https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js`
-                // `https://myapi.com/times?date=${formik.values.date}`
             )
             const data = await response.json()
             setAvailableTimes(data)
@@ -93,11 +92,11 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
                                 value={formik.values.time}
                             >
                                 <option value="">Select a time</option>
-                                {availableTimes.map((time) => (
-                                    <option key={time} value={time}>
-                                        {time}
-                                    </option>
-                                ))}
+                                    {availableTimes.map((time) => (
+                                        <option key={time} value={time}>
+                                            {time}
+                                        </option>
+                                    ))}
                             </Select>
                             <FormErrorMessage color="red">{formik.errors.time}</FormErrorMessage>
                         </FormControl>
@@ -119,6 +118,7 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
                                 min={1}
                                 id="guests"
                                 name="guests"
+                                textAlign="center"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.guests}

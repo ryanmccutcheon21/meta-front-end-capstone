@@ -15,13 +15,13 @@ const Footer = () => {
                         Our Links
                     </Text>
                     <Flex direction="column" alignItems="center" flexWrap="wrap">
-                        <Link href="#">Home</Link>
-                        <Link href="#">About</Link>
-                        <Link href="#">Menu</Link>
-                        <Link href="#">Reservations</Link>
-                        <Link href="#">Order Online</Link>
-                        <Link href="#">Login</Link>
-                        <Link href="#">Contact</Link>
+                        <Link href="/">Home</Link>
+                        <Link href="/about">About</Link>
+                        <Link href="/menu">Menu</Link>
+                        <Link href="/reservations">Reservations</Link>
+                        <Link href="/order-online">Order Online</Link>
+                        <Link href="/login">Login</Link>
+                        <Link href="/contact">Contact</Link>
                     </Flex>
                 </Box>
                 <Box flex="1 1 auto" mb={{ base: 8, md: 0 }}>
