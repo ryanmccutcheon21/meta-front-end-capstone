@@ -1,6 +1,7 @@
-import { Box, Button, Text, VStack } from '@chakra-ui/react'
-import React from 'react'
+import { Link } from 'react-router-dom';
+import { Box, Button, Text, VStack, Link as ChakraLink } from '@chakra-ui/react'
 import image from '../images/hero.png'
+
 
 const Hero = () => {
     return (
@@ -16,7 +17,10 @@ const Hero = () => {
                     Chicago
                 </Text>
                 <Text color='brand.highlight1'>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Text>
-                <Button bg='brand.primary2' p={2} borderRadius={16} fontWeight='bold'>Reserve a Table</Button>
+                {/* <ChakraLink as='Link' to='/reservations' bg='brand.primary2' p={2} borderRadius={16} fontWeight='bold'>Reserve a Table</ChakraLink> */}
+                <ChakraLink as={Link} to='/reservations' bg='brand.primary2' p={2} borderRadius={16} fontWeight='bold' _hover={{backgroundColor: 'brand.secondary1'}}>
+                      Reserve a Table
+                </ChakraLink>
             </VStack>
             <img src={image} alt='Little Lemon dish' />
         </Box>
