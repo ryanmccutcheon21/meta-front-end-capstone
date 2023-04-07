@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, FormErrorMessage, FormLabel, Grid, GridItem, Input, Select } from "@chakra-ui/react"
+import { Box, Button, FormControl, FormErrorMessage, FormLabel, Grid, GridItem, Input, Select, Text } from "@chakra-ui/react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { useEffect } from "react"
@@ -26,10 +26,10 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
     })
 
     useEffect(() => {
-        // simulate API call to fetch available times for the selected date
         const fetchAvailableTimes = async () => {
             const response = await fetch(
-                `https://myapi.com/times?date=${formik.values.date}`
+                `https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js`
+                // `https://myapi.com/times?date=${formik.values.date}`
             )
             const data = await response.json()
             setAvailableTimes(data)
@@ -54,7 +54,15 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
                 <Grid gap={4}>
                     <GridItem colSpan={2}>
                         <FormControl isInvalid={formik.touched.date && formik.errors.date}>
-                            <FormLabel htmlFor="date">Choose date</FormLabel>
+                            <FormLabel 
+                                htmlFor="date" 
+                                color='brand.highlight1'
+                                fontWeight='bold'
+                                fontSize={32}
+                                textAlign="center"
+                                >
+                                    Choose date
+                            </FormLabel>
                             <Input
                                 type="date"
                                 id="date"
@@ -63,12 +71,20 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
                                 onBlur={formik.handleBlur}
                                 value={formik.values.date}
                             />
-                            <FormErrorMessage>{formik.errors.date}</FormErrorMessage>
+                            <FormErrorMessage color="red">{formik.errors.date}</FormErrorMessage>
                         </FormControl>
                     </GridItem>
                     <GridItem colSpan={2}>
                         <FormControl isInvalid={formik.touched.time && formik.errors.time}>
-                            <FormLabel htmlFor="time">Choose time</FormLabel>
+                            <FormLabel 
+                                htmlFor="time" 
+                                color='brand.highlight1'
+                                fontWeight='bold'
+                                fontSize={32}
+                                textAlign="center"
+                                >
+                                    Choose time
+                            </FormLabel>
                             <Select
                                 id="time"
                                 name="time"
@@ -83,12 +99,20 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
                                     </option>
                                 ))}
                             </Select>
-                            <FormErrorMessage>{formik.errors.time}</FormErrorMessage>
+                            <FormErrorMessage color="red">{formik.errors.time}</FormErrorMessage>
                         </FormControl>
                     </GridItem>
                     <GridItem colSpan={2}>
                         <FormControl isInvalid={formik.touched.guests && formik.errors.guests}>
-                            <FormLabel htmlFor="guests">Number of guests</FormLabel>
+                            <FormLabel 
+                                htmlFor="guests" 
+                                color='brand.highlight1'
+                                fontWeight='bold'
+                                fontSize={32}
+                                textAlign="center"
+                                >
+                                    # of guests
+                            </FormLabel>
                             <Input
                                 type="number"
                                 step={1}
@@ -99,12 +123,20 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
                                 onBlur={formik.handleBlur}
                                 value={formik.values.guests}
                             />
-                            <FormErrorMessage>{formik.errors.guests}</FormErrorMessage>
+                            <FormErrorMessage color="red">{formik.errors.guests}</FormErrorMessage>
                         </FormControl>
                     </GridItem>
                     <GridItem colSpan={2}>
                         <FormControl isInvalid={formik.touched.occasion && formik.errors.occasion}>
-                            <FormLabel htmlFor="occasion">Occasion (optional)</FormLabel>
+                            <FormLabel 
+                                htmlFor="occasion" 
+                                color='brand.highlight1'
+                                fontWeight='bold'
+                                fontSize={32}
+                                textAlign="center"
+                                >
+                                    Occasion <Text fontSize={16}>(optional)</Text>
+                            </FormLabel>
                             <Input
                                 type="text"
                                 id="occasion"
@@ -113,14 +145,17 @@ const ReservationForm = ({ updateTimes, availableTimes, setAvailableTimes }) => 
                                 onBlur={formik.handleBlur}
                                 value={formik.values.occasion}
                             />
-                            <FormErrorMessage>{formik.errors.occasion}</FormErrorMessage>
+                            <FormErrorMessage color="red">{formik.errors.occasion}</FormErrorMessage>
                         </FormControl>
                     </GridItem>
                     <GridItem colSpan={2}>
                         <Button
-                            colorScheme="teal"
                             type="submit"
                             disabled={!formik.isValid || formik.isSubmitting}
+                            bg='brand.primary2'
+                            p={2} 
+                            borderRadius={16} 
+                            fontWeight='bold'
                         >
                             {formik.isSubmitting ? "Submitting..." : "Submit"}
                         </Button>

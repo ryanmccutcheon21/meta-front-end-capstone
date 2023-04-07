@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Container, Heading, Box, SimpleGrid } from "@chakra-ui/react"
 import ReservationForm from "../components/ReservationForm"
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 const Reservation = () => {
     const [availableTimes, setAvailableTimes] = useState([
@@ -16,16 +18,33 @@ const Reservation = () => {
         setAvailableTimes(newTimes)
     }
 
+    const initializeTimes = async (e) => {
+        e.preventDefault()
+        const date = new Date
+        const res = await fetch(date)
+        const data = await res.json()
+        return data
+    }
+
     return (
-        <Container>
-            <Heading as="h1" my={10}>
+        <Container bg="brand.primary1" pb={2}>
+            <Navbar />
+            <Heading as="h1" my={10} color='brand.primary2' fontWeight='extrabold' fontSize={64} style={{ whiteSpace: 'nowrap' }}>
                 Make a Reservation
             </Heading>
             <Box my={5}>
                 <SimpleGrid columns={[1, null, 2]} gap={10}>
                     <ReservationForm updateTimes={updateTimes} availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />
                     <Box>
-                        <Heading as="h2" size="md" mb={5}>
+                        <Heading 
+                            as="h2" 
+                            size="md" 
+                            mb={5} 
+                            color='brand.highlight1'
+                            fontWeight='bold'
+                            fontSize={32}
+                            textAlign="center"
+                            >
                             Available times:
                         </Heading>
                         {availableTimes.length > 0 ? (
@@ -40,6 +59,7 @@ const Reservation = () => {
                     </Box>
                 </SimpleGrid>
             </Box>
+            <Footer />
         </Container>
     )
 }
